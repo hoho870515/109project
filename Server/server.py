@@ -39,7 +39,7 @@ class dataBase:
     def inquireOrCancel(self, ID, Name):
         try:
             cursor = self.db.cursor()
-            sql = ("select * from patient where ID euqal '"+ID+"' ")#下指令，皆用變數儲存
+            sql = ("select * from patient where ID = '"+ID+"' ")#下指令，皆用變數儲存
             cursor.execute(sql)
             rows = cursor.fetchall()
             print(rows)
