@@ -36,17 +36,21 @@ class dataBase:
         return list(rows[0])
     def booking():
         pass
-    def inquireOrCancel(self, ID, Name):
+    def inquire(self, ID, Name):
         try:
             cursor = self.db.cursor()
             sql = ("select * from patient where ID = '"+ID+"' ")#下指令，皆用變數儲存
             cursor.execute(sql)
             rows = cursor.fetchall()
-            print(rows)
+            # print(len(rows))
+            # print(rows)
         except Exception as e:
             print("Exeception occured:{}".format(e))
         finally:
             self.db.close()#關閉DataBase
+        return json.dumps(rows)
+    def cancel():
+        pass
 
 # @app.route('/booking', methods = ['GET', 'POST'])
 # def booking():
@@ -64,12 +68,27 @@ class dataBase:
 def check():
     if request.method == 'GET':
         return render_template('Inquire-2.html')
-    elif request.method == 'POST':    
-        print(request.form.get("ID"))
-        print(request.form.get("name"))
-        db = dataBase()
-        db.inquireOrCancel(ID, name)
-        return render_template('Inquire-3.html')
+    elif request.method == 'POST':
+        print(request)
+        data = list(request.form.keys())
+        if 'determine' in data:
+        # if data[0] == 'determine':
+            ID = request.form.get("ID")
+            name = request.form.get("name")
+            print('ID: ', ID, 'name: ', name)
+            db = dataBase()
+            patientData = json.loads(db.inquire(ID, name))[0]
+            ######patient data######
+            return render_template('Inquire-3.html', patientData = patientData)
+        elif 'cancel' in data:
+            print('cancel')
+            return render_template('homePage.html')
+        elif 'return' in data:
+            print('return')
+            return render_template('Inquire-2.html')
+        
+        
+        else:return render_template('Inquire-3.html')
 
 @app.route('/inquireOnline', methods = ['GET', 'POST'])
 def inquireOnline():
@@ -77,9 +96,10 @@ def inquireOnline():
         return render_template('Inquire-1.html')
     elif request.method == 'POST':
         data = list(request.form.to_dict().keys())
-        if data[0] == 'inquireOrCancel':
+        print(data)
+        if 'inquireOrCancel' in data:
             return render_template('Inquire-2.html')
-        elif data[0] == 'inquireCurrent':
+        elif 'inquireCurrent' in data:
             return render_template('Inquire-4.html')
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -90,13 +110,16 @@ def index():
     if request.method == 'GET':
         return render_template('homePage.html')
     elif request.method == 'POST':
-        data = list(request.form.to_dict().keys())
-        if data[0] == 'inquireOnline':
-            return render_template('Inquire-1.html')
-        elif data[0] == 'reservation':
-            pass
-        elif data[0] == 'description':
-            pass
+        print(request.form)
+        data = list(request.form.keys())
+        
+        return render_template('homePage.html')
+        # if data[0] == 'inquireOnline':
+        #     return render_template('Inquire-1.html')
+        # elif data[0] == 'reservation':
+        #     pass
+        # elif data[0] == 'description':
+        #     pass
     
 
 if __name__ == "__main__":
