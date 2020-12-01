@@ -95,7 +95,7 @@ def inquireOnline():
     if request.method == 'GET':
         return render_template('Inquire-1.html')
     elif request.method == 'POST':
-        data = list(request.form.to_dict().keys())
+        data = list(request.form.keys())
         print(data)
         if 'inquireOrCancel' in data:
             return render_template('Inquire-2.html')
@@ -110,16 +110,13 @@ def index():
     if request.method == 'GET':
         return render_template('homePage.html')
     elif request.method == 'POST':
-        print(request.form)
         data = list(request.form.keys())
-        
-        return render_template('homePage.html')
-        # if data[0] == 'inquireOnline':
-        #     return render_template('Inquire-1.html')
-        # elif data[0] == 'reservation':
-        #     pass
-        # elif data[0] == 'description':
-        #     pass
+        if 'inquireOnline' in data:
+            return render_template('Inquire-1.html')
+        elif 'reservation' in data:
+            pass
+        elif 'description' in data:
+            pass
     
 
 if __name__ == "__main__":
