@@ -6,65 +6,59 @@
 </head>
 
 <body>
-<center><font size="32">線上預約</font></center>
-<br>
-<HR>
-<br>
-<center>請選擇想預約的掛號日期</center>
-<br>
-<center>科別和醫師，填寫基本資料後</center>
-<br>
-<center>即可完成預約掛號</center>
-<br>
-<HR>
-<br>
+    <div style = "text-align:center;">
+        <p style = "font-size : 48px">線上預約</p>
+        <HR>
+        <p style = "font-size : 48px">請選擇想預約的掛號日期</p>
+        <p style = "font-size : 48px">科別和醫師，填寫基本資料後</p>
+        <p style = "font-size : 48px">即可完成預約掛號</p>
+        <HR>
+    </div>
+    <form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
+        <div style = "text-align:center;">
+            <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 48px" name="欄位名稱"></p>
+            <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 48px" name="欄位名稱"></p>
 
-<center>身分證:<form><input type="text" name="欄位名稱"></form></font></center>
+            <p style = "font-size : 48px">日期:
+            <select style = "font-size : 48px">
+                <option>請選擇你最愛的寵物</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Hamster</option>
+                <option>Parrot</option>
+                <option>Spider</option>
+                <option>Goldfish</option>
+            </select></p>
 
+            <p style = "font-size : 48px">科別:
+            <select style = "font-size : 48px">
+                <option>請選擇你最愛的寵物</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Hamster</option>
+                <option>Parrot</option>
+                <option>Spider</option>
+                <option>Goldfish</option>
+            </select></p>
 
-<center>姓名:<form><input type="text" name="欄位名稱"></form></font></center>
+            <p style = "font-size : 48px">醫生:
+            <select style = "font-size : 48px">
+                <option>請選擇你最愛的寵物</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Hamster</option>
+                <option>Parrot</option>
+                <option>Spider</option>
+                <option>Goldfish</option>
+            </select></p>
 
-<center>日期:</font>
+            <p><input type="button" style = "font-size : 48px" value="確定"></p>
+        </div>
+    </form>
 
-<select>
-    <option>請選擇你最愛的寵物</option>
-    <option>Dog</option>
-    <option>Cat</option>
-    <option>Hamster</option>
-    <option>Parrot</option>
-    <option>Spider</option>
-    <option>Goldfish</option>
-</select>
-
-</center>
-
-<center>科別:
-<select>
-    <option>請選擇你最愛的寵物</option>
-    <option>Dog</option>
-    <option>Cat</option>
-    <option>Hamster</option>
-    <option>Parrot</option>
-    <option>Spider</option>
-    <option>Goldfish</option>
-</select>
-</center>
-
-<center>醫生:<select>
-    <option>請選擇你最愛的寵物</option>
-    <option>Dog</option>
-    <option>Cat</option>
-    <option>Hamster</option>
-    <option>Parrot</option>
-    <option>Spider</option>
-    <option>Goldfish</option>
-</select>
-</center>
-
-<center><input type="button" value="確定">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<center><font size="32">【這是一個方便生活、節約時間】</font></center>
-<center><font size="32">【並帶給人們美好體驗的貼心系統】</font></center>
-
+    <div style = "text-align:center;">
+		<p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+		<p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+	</div>
 </body>
 

@@ -56,13 +56,35 @@ class dataBase:
 # def booking():
 #     pass
 
-# @app.route('/', methods = ['GET', 'POST'])
-# def booking():
-#     pass
+@app.route('/reservationOnline', methods = ['GET', 'POST'])
+def reservationOnline():
+    if request.method == 'GET':
+        return render_template('reservation-Online-1.html')
+    elif request.method == 'POST':
+        print(request)
+        data = list(request.form.keys())
+        ID = request.form.get("ID")
+        name = request.form.get("name")
+        # if 'onlineBooking' in data:    
+        #     print('ID: ', ID, 'name: ', name)
+        #     return render_template('reservation-Online-1.html')
 
-# @app.route('/', methods = ['GET', 'POST'])
-# def booking():
-#     pass
+@app.route('/reservation', methods = ['GET', 'POST'])
+def reservation():
+    if request.method == 'GET':
+        return render_template('reservation.html')
+    elif request.method == 'POST':
+        print(request)
+        data = list(request.form.keys())
+        ID = request.form.get("ID")
+        name = request.form.get("name")
+        if 'onlineBooking' in data:    
+            print('ID: ', ID, 'name: ', name)
+            return render_template('reservation-Online-1.html')
+        elif 'phoneBooking' in data:
+            return render_template('reservation-Phone.html')
+        else:
+            return render_template('reservation.html')
 
 @app.route('/check', methods = ['GET', 'POST'])
 def check():
@@ -72,13 +94,11 @@ def check():
         print(request)
         data = list(request.form.keys())
         if 'determine' in data:
-        # if data[0] == 'determine':
             ID = request.form.get("ID")
             name = request.form.get("name")
             print('ID: ', ID, 'name: ', name)
             db = dataBase()
             patientData = json.loads(db.inquire(ID, name))[0]
-            ######patient data######
             return render_template('Inquire-3.html', patientData = patientData)
         elif 'cancel' in data:
             print('cancel')
@@ -86,9 +106,8 @@ def check():
         elif 'return' in data:
             print('return')
             return render_template('Inquire-2.html')
-        
-        
-        else:return render_template('Inquire-3.html')
+        else:
+            return render_template('Inquire-3.html')
 
 @app.route('/inquireOnline', methods = ['GET', 'POST'])
 def inquireOnline():
@@ -104,9 +123,6 @@ def inquireOnline():
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-    # db = dataBase()
-    # patientData = db.getData()
-    
     if request.method == 'GET':
         return render_template('homePage.html')
     elif request.method == 'POST':
@@ -114,9 +130,9 @@ def index():
         if 'inquireOnline' in data:
             return render_template('Inquire-1.html')
         elif 'reservation' in data:
-            pass
+            return render_template('reservation.html')
         elif 'description' in data:
-            pass
+            return render_template('description.html')
     
 
 if __name__ == "__main__":
