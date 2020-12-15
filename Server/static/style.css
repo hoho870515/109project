@@ -1,0 +1,25 @@
+<style>
+	article 	{ width: 500%;
+		  float: right;
+		  margin:  0 0 50px;
+		  color: #FFFFFF;
+                  } 
+	sidebar		{ width: 40%;
+		  float: left;
+		  margin: 0 0 50px;
+		  color: #FFFFFF;
+                  } 
+	@media screen and(min-width: 800px)
+		{
+		article { width: 100px;
+				float: right;
+				margin:  0 0 50px;
+				color: #FFFFFF;
+				} 
+		sidebar	{ width: 300px;
+				float: left;
+				margin:  0 0 50px;
+				color: #FFFFFF;
+				} 
+		}
+</style>

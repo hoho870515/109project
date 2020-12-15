@@ -1,24 +1,18 @@
-<html>
+{% extends "layout.html" %}
 
-<head>
-<meta charset="utf-8">
-<title>test</title>
-</head>
-
-<body>
-    <div style = "text-align:center;">
-        <p style = "font-size : 48px">查詢/取消預約掛號</p>
-        <form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
-            <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 36px" name="ID"></p>
-            <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 36px" name="name"></p>
-            <p ><input type="submit" style = "font-size : 36px" name = "determine" value="確定"></p>
-        </form>
-    </div>
+{% block body %}
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">查詢/取消預約掛號</p>
+    <form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
+        <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 36px" name="ID"></p>
+        <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 36px" name="name"></p>
+        <p ><input type="submit" style = "font-size : 36px" name = "determine" value="確定"></p>
+    </form>
+</div>
 
 
-    <div style = "text-align:center;">
-        <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-        <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-    </div>
-</body>
-
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+</div>
+{% endblock %}

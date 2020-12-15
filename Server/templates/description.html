@@ -1,39 +1,27 @@
-<html>
+{% extends "layout.html" %}
 
-<head>
-<meta charset="utf-8">
-<title>test</title>
-</head>
-
-<body>
-<center>系統說明</font></center>
-<br><br><br><br>
-<center>網路預約掛號</font><br>
-線上預約掛號:<br>
-於首頁中，點選網路預約掛號，再點選線上預約按鈕，<br>
-即會跳出表單要求患者輸入資料，輸入完成後送出，即預約完成。<br><br>
-電話預約掛號:<br>
-於首頁中，點選網路預約掛號，再點選電話預約，點按撥打按紐，<br>
-將會透過電話的方式直接向醫院的櫃檯掛號。<br>
-(櫃台醫護人員將您的基本資料匯入系統中，即完成預約掛號。)<br>
-<br><br><br>
-線上查詢<br>
-
-查詢/取消預約掛號:<br>
-於首頁中，點選線上查詢，再點選查詢/取消預約掛號，<br>
-即會跳出表單要求病患輸入資料，輸入完成後送出，<br>
-即可查閱患者預約的基本資料、就診醫生及門診與看診時間、就診號碼。<br>
-或是如果要取消預約，於下方點按〈取消掛號〉進行取消的動作。<br><br><br>
-線上觀看現場就診進度:<br>
-於首頁中，點選線上查詢，再點選線上觀看現場就診進度，<br>
-即會立即同步現場就診進度，並呈現出來。<br>
-
-</center>
-<center><font size="32">【這是一個方便生活、節約時間】</font></center>
-<center><font size="32">【並帶給人們美好體驗的貼心系統】</font></center>
-</body>
-
-</html>
-
-
-
+{% block body %}
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">系統說明</p>
+    <p style = "font-size : 24px">網路預約掛號</p>
+    <p style = "font-size : 24px">線上預約掛號:</p>
+    <p style = "font-size : 24px">於首頁中，點選網路預約掛號，再點選線上預約按鈕，</p>
+    <p style = "font-size : 24px">即會跳出表單要求患者輸入資料，輸入完成後送出，即預約完成。</p>
+    <p style = "font-size : 24px">電話預約掛號:</p>
+    <p style = "font-size : 24px">於首頁中，點選網路預約掛號，再點選電話預約，點按撥打按紐，</p>
+    <p style = "font-size : 24px">將會透過電話的方式直接向醫院的櫃檯掛號。</p>
+    <p style = "font-size : 24px">(櫃台醫護人員將您的基本資料匯入系統中，即完成預約掛號。)</p>
+    <br><br><br>
+    <p style = "font-size : 24px">線上查詢</p>
+    <p style = "font-size : 24px">查詢/取消預約掛號:</p>
+    <p style = "font-size : 24px">於首頁中，點選線上查詢，再點選查詢/取消預約掛號，</p>
+    <p style = "font-size : 24px">即會跳出表單要求病患輸入資料，輸入完成後送出，</p>
+    <p style = "font-size : 24px">即可查閱患者預約的基本資料、就診醫生及門診與看診時間、就診號碼。</p>
+    <p style = "font-size : 24px">或是如果要取消預約，於下方點按〈取消掛號〉進行取消的動作。</p>
+    <p style = "font-size : 24px">線上觀看現場就診進度:</p>
+    <p style = "font-size : 24px">於首頁中，點選線上查詢，再點選線上觀看現場就診進度，</p>
+    <p style = "font-size : 24px">即會立即同步現場就診進度，並呈現出來。</p>
+    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+</div>
+{% endblock %}

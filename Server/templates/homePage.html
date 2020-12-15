@@ -1,24 +1,17 @@
+{% extends "layout.html" %}
 
-<html>
-
-
-
-<head>
-<meta charset="utf-8">
-<title>test</title>
+{% block head %}
 <style>
 	article 	{ width: 500%;
 		  float: right;
 		  margin:  0 0 50px;
 		  color: #FFFFFF;
                   } 
-
 	sidebar		{ width: 40%;
 		  float: left;
 		  margin: 0 0 50px;
 		  color: #FFFFFF;
                   } 
-
 	@media screen and(min-width: 800px)
 		{
 		article { width: 100px;
@@ -26,36 +19,30 @@
 				margin:  0 0 50px;
 				color: #FFFFFF;
 				} 
-
 		sidebar	{ width: 300px;
 				float: left;
 				margin:  0 0 50px;
 				color: #FFFFFF;
 				} 
-
 		}
-	
 </style>
-</head>
+{% endblock %}
 
-<body>
-	<form method="post" action="https://140.134.26.17:3333/" enctype="multipart/form-data">
-		<p style = "text-align:center;font-size:2cm;">模擬線上預約系統</p>
-		<div style="background: url(../static/Home.png) no-repeat;width:100%;height:1200px;background-position:50% -1000%; text-align:center">
-		<br>
-		<button  type="submit" name="reservation" style="background: url(../static/Online_appointment_registration.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:230px"></button>
-		<br>
-		<button  type="submit" name="inquireOnline" style="background: url(../static/Online_inquiry.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:350px;right:20"></button>
-		<button  type="submit" name="description" style="background: url(../static/Systems_manual.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:350px;left:20"></button>
-		<br>
-		</div>
-	</form>
-
-	<div style = "text-align:center;">
-		<p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-		<p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+{% block body %}
+<form method="post" action="https://140.134.26.17:3333/" enctype="multipart/form-data">
+	<p style = "text-align:center;font-size:2cm;">模擬線上預約系統</p>
+	<div style="background: url(../static/Home.png) no-repeat;width:100%;height:1200px;background-position:50% -1000%; text-align:center">
+	<br>
+	<button  type="submit" name="reservation" style="background: url(../static/Online_appointment_registration.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:230px"></button>
+	<br>
+	<button  type="submit" name="inquireOnline" style="background: url(../static/Online_inquiry.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:350px;right:20"></button>
+	<button  type="submit" name="description" style="background: url(../static/Systems_manual.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:350px;left:20"></button>
+	<br>
 	</div>
-</body>
+</form>
 
-</html>
- <img src="static/123.jpg"/>
+<div style = "text-align:center;">
+	<p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+	<p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+</div>
+{% endblock %}

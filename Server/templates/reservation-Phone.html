@@ -1,30 +1,24 @@
-<html>
+{% extends "layout.html" %}
 
-<head>
-<meta charset="utf-8">
-<title>test</title>
-</head>
+{% block body %}
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">線上預約</p>
+    <HR>
+    <p style = "font-size : 48px">電話預約</p>
+    <p style = "font-size : 48px">04-123456789</p>
+    <HR>
+    <p style = "font-size : 48px">診所人員會詢問您的</p>
+    <p style = "font-size : 48px">您的身分證+您的姓名+您的電話</p>
+    <p style = "font-size : 48px">看診日期+看什麼科別+哪位醫生</p>
+    <p style = "font-size : 48px">當資料告知完成後</p>
+    <p style = "font-size : 48px">診所人員即會告知您是否</p>
+    <p style = "font-size : 48px">預約完成</p>
 
-<body>
-    <div style = "text-align:center;">
-        <p style = "font-size : 48px">線上預約</p>
-        <HR>
-        <p style = "font-size : 48px">電話預約</p>
-        <p style = "font-size : 48px">04-123456789</p>
-        <HR>
-        <p style = "font-size : 48px">診所人員會詢問您的</p>
-        <p style = "font-size : 48px">您的身分證+您的姓名+您的電話</p>
-        <p style = "font-size : 48px">看診日期+看什麼科別+哪位醫生</p>
-        <p style = "font-size : 48px">當資料告知完成後</p>
-        <p style = "font-size : 48px">診所人員即會告知您是否</p>
-        <p style = "font-size : 48px">預約完成</p>
+    <p><input type="button" style = "font-size : 48px" value="撥打"></p>
+</div>
 
-        <p><input type="button" style = "font-size : 48px" value="撥打"></p>
-    </div>
-
-    <div style = "text-align:center;">
-        <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-        <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-    </div>
-</body>
-
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+</div>
+{% endblock %}

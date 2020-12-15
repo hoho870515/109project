@@ -1,64 +1,44 @@
-<html>
+{% extends "layout.html" %}
 
-<head>
-<meta charset="utf-8">
-<title>test</title>
-</head>
-
-<body>
+{% block body %}
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">線上預約</p>
+    <HR>
+    <p style = "font-size : 48px">請選擇想預約的掛號日期</p>
+    <p style = "font-size : 48px">科別和醫師，填寫基本資料後</p>
+    <p style = "font-size : 48px">即可完成預約掛號</p>
+    <HR>
+</div>
+<form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
     <div style = "text-align:center;">
-        <p style = "font-size : 48px">線上預約</p>
-        <HR>
-        <p style = "font-size : 48px">請選擇想預約的掛號日期</p>
-        <p style = "font-size : 48px">科別和醫師，填寫基本資料後</p>
-        <p style = "font-size : 48px">即可完成預約掛號</p>
-        <HR>
+        <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 48px" name="ID"></p>
+        <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 48px" name="name"></p>
+
+        <p style = "font-size : 48px">日期:
+        <input type = "date" name = "date" style = "font-size : 48px"></p>
+
+        <p style = "font-size : 48px">科別:
+        <select name = "department" style = "font-size : 48px">
+            <option>請選擇科別</option>
+            <option>Dental</option>
+            <option>Pediatrics</option>
+            <option>cardiology</option>
+        </select></p>
+
+        <p style = "font-size : 48px">醫生:
+        <select name = "doctor" style = "font-size : 48px">
+            <option>請選擇醫生</option>
+            <option>Denver</option>
+            <option>Allen</option>
+            <option>Ray</option>
+        </select></p>
+
+        <p><input type="submit" style = "font-size : 48px" name = "determine" value="確定"></p>
     </div>
-    <form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
-        <div style = "text-align:center;">
-            <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 48px" name="欄位名稱"></p>
-            <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 48px" name="欄位名稱"></p>
+</form>
 
-            <p style = "font-size : 48px">日期:
-            <select style = "font-size : 48px">
-                <option>請選擇你最愛的寵物</option>
-                <option>Dog</option>
-                <option>Cat</option>
-                <option>Hamster</option>
-                <option>Parrot</option>
-                <option>Spider</option>
-                <option>Goldfish</option>
-            </select></p>
-
-            <p style = "font-size : 48px">科別:
-            <select style = "font-size : 48px">
-                <option>請選擇你最愛的寵物</option>
-                <option>Dog</option>
-                <option>Cat</option>
-                <option>Hamster</option>
-                <option>Parrot</option>
-                <option>Spider</option>
-                <option>Goldfish</option>
-            </select></p>
-
-            <p style = "font-size : 48px">醫生:
-            <select style = "font-size : 48px">
-                <option>請選擇你最愛的寵物</option>
-                <option>Dog</option>
-                <option>Cat</option>
-                <option>Hamster</option>
-                <option>Parrot</option>
-                <option>Spider</option>
-                <option>Goldfish</option>
-            </select></p>
-
-            <p><input type="button" style = "font-size : 48px" value="確定"></p>
-        </div>
-    </form>
-
-    <div style = "text-align:center;">
-		<p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-		<p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-	</div>
-</body>
-
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+</div>
+{% endblock %}

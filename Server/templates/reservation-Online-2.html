@@ -1,26 +1,42 @@
+{% extends "layout.html" %}
 
-<html>
-
-
-
-<head>
-<meta charset="utf-8">
-<title>test</title>
-</head>
-
-<body>
+{% block body %}
+<form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
     <div style = "text-align:center;">
-		<p style = "font-size : 48px">確認預約資訊</p>
-        <p style = "font-size : 48px">身分證ID:範例</p>
-        <p style = "font-size : 48px">姓名:範例</p>
-        <p style = "font-size : 48px">科別:範例</p>
-        <p style = "font-size : 48px">醫生:範例</p>
-        <p ><input type="button" style = "font-size : 48px" value="確認"></p>
-	</div>
-
-    <div style = "text-align:center;">
-        <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-        <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+        <p id = "patientId" style = "font-size : 48px" data-content = "Something">身分證ID:</p>
+        <p id = "patientName" style = "font-size : 48px">姓名:</text></p>
+        <p id = "date" style = "font-size : 48px">日期:</text></p>
+        <p id = "department" style = "font-size : 48px">科別:</text></p>
+        <p id = "doctor" style = "font-size : 48px">醫生:</text></p>
+        <p ><input type="submit" style = "font-size : 48px" name = "doubleDetermine" value="確認"></p>
     </div>
-</body>
-</html>
+</form>
+<div style = "text-align:center;">
+    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
+    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
+</div>
+
+<script>
+    var patientData = JSON.parse('{{patientData | tojson | safe}}');
+    console.log(patientData)
+    console.log(patientData[0])
+
+    var patientId = document.getElementById("patientId");
+    patientId.textContent = "身分證ID: " + patientData[0];
+    
+    var patientName = document.getElementById("patientName");
+    patientName.textContent = "姓名: " + patientData[1]
+    
+    var date = document.getElementById("date");
+    date.textContent = "日期: " +  patientData[2]
+    
+    var department = document.getElementById("department");
+    department.textContent = "科別: " +  patientData[3]
+    
+    var doctor = document.getElementById("doctor");
+    doctor.textContent = "醫生: " +  patientData[4]
+    
+    // var number = document.getElementById("number");
+    // number.textContent = "掛號號碼: " +  patientData[5]
+</script>
+{% endblock %}
