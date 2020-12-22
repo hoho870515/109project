@@ -1,5 +1,6 @@
-{% extends "layout.html" %}
+{% extends "navbar.html" %}
 
+{% block title %} - Home{% endblock %}
 {% block body %}
 <div class="container">
     {% for message in get_flashed_messages() %}
@@ -12,6 +13,7 @@
 </div>
 
 <p style = "text-align:center;font-size : 48px">查詢/取消預約掛號</p>
+<HR>
 
 <form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
 <div style = "text-align:center;">
@@ -24,7 +26,7 @@
 
 
     <input type="submit" style = "font-size : 48px" name = 'return' value="上一頁">
-    <input type="submit" style = "font-size : 48px" name = "cancel" value="取消掛號">
+    <input type="submit" style = "font-size : 48px" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
 </div>
 </form>
 

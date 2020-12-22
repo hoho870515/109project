@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+{% block head %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}test{% endblock %}</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- <script src="{{ url_for('static', filename='wowbook/js/jquery-1.9.1.min.js') }}"></script> -->
+<!-- <script src="{{ url_for('static', filename='wowbook/wow_book.min.js') }}"></script> -->
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='wowbook/css/wow_book.css') }}"> -->
+{% endblock %}
+
+{% block body %}
+<!--功能列-->
+<nav class="navbar navbar-expand-md navbar-dark bg-info sticky-top">
+  <div class="container">
+    <!--LOGO和標題文字-->
+    <a class="navbar-brand" style="font-weight:bold;" href="{{ url_for('homePage') }}">
+      <img src="{{ url_for('static', filename='logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt=""> i t n e s s !
+    </a>
+    <!--漢堡式選單按鈕-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#item" aria-controls="item" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--選項-->
+    <div class="collapse navbar-collapse" id="item">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('homePage') }}">體態紀錄</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('description') }}">教學影片</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('reservation') }}">姿勢檢查</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('Inqurie-1') }}">身體計算器</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}

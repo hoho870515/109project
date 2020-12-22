@@ -27,6 +27,10 @@ class dataBase:
             elif instruct == 'insert':
                 self.db.commit()
                 rows = 'successful insert'
+            elif instruct == 'delete':
+                self.db.execute(sql)
+                self.db.commit()
+                rows = 'successful delete'
             else:
                 rows = 'None'
         except Exception as e:
@@ -48,9 +52,8 @@ class dataBase:
         print('result', result)
         return json.dumps(result)
     def cancel():
-        sql = ("insert into patient (%s, %s, %s, %s, %s)",\
-            ID, name, date, department, doctor)
-        result = self.open_db(sql)
+        sql = "delete from patient where ID = %s"
+        result = self.open_db(sql,'delete', ID)
         pass
 
 @app.route('/reservationOnline', methods = ['GET', 'POST'])
@@ -102,7 +105,6 @@ def check():
             return render_template('Inquire-3.html', patientData = patientData)
         elif 'cancel' in data:
             print('cancel')
-            # flash('Are you sure about cancel the reservation?')
             return render_template('homePage.html')
         elif 'return' in data:
             print('return')

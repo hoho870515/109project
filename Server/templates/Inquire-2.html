@@ -1,8 +1,10 @@
-{% extends "layout.html" %}
+{% extends "navbar.html" %}
 
+{% block title %} - Home{% endblock %}
 {% block body %}
 <div style = "text-align:center;">
     <p style = "font-size : 48px">查詢/取消預約掛號</p>
+    <HR>
     <form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
         <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 36px" name="ID"></p>
         <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 36px" name="name"></p>
