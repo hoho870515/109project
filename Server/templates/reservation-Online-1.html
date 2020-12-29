@@ -1,6 +1,33 @@
-{% extends "layout.html" %}
+{% extends "navbar.html" %}
 
+{% block title %}Reservation{% endblock %}
 {% block body %}
+<script>
+    function doubleDetermine()
+    {
+        var patientId = document.forms["patientData"]["patientId"].value;
+    
+        var patientName = document.forms["patientData"]["patientName"].value;
+    
+        var date = document.forms["patientData"]["date"].value;
+    
+        var department = document.forms["patientData"]["department"].value;
+    
+        var doctor = document.forms["patientData"]["doctor"].value;
+
+        if(confirm("身分證ID: " + patientId +
+            "\n姓名: " + patientName +
+            "\n日期: " +  date +
+            "\n科別: " +  department +
+            "\n醫生: " +  doctor))
+        {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+</script>
 <div style = "text-align:center;">
     <p style = "font-size : 48px">線上預約</p>
     <HR>
@@ -9,10 +36,10 @@
     <p style = "font-size : 48px">即可完成預約掛號</p>
     <HR>
 </div>
-<form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
+<form name = "patientData", method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
     <div style = "text-align:center;">
-        <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 48px" name="ID"></p>
-        <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 48px" name="name"></p>
+        <p style = "font-size : 48px">身分證:<input type="text" style = "font-size : 48px" name="patientId"></p>
+        <p style = "font-size : 48px">姓名:<input type="text" style = "font-size : 48px" name="patientName"></p>
 
         <p style = "font-size : 48px">日期:
         <input type = "date" name = "date" style = "font-size : 48px"></p>
@@ -33,12 +60,13 @@
             <option>Ray</option>
         </select></p>
 
-        <p><input type="submit" style = "font-size : 48px" name = "determine" value="確定"></p>
+        <p><input type="submit" style = "font-size : 48px" name = "determine" value="確定" onclick = "return doubleDetermine()"></p>
     </div>
 </form>
-
+<HR>
 <div style = "text-align:center;">
     <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
     <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
 </div>
+<HR>
 {% endblock %}

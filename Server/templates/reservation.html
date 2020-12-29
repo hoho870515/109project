@@ -1,5 +1,6 @@
 {% extends "navbar.html" %}
-{% block title %} - Login{% endblock %}
+
+{% block title %}Reservation{% endblock %}
 {% block body %}
 <form method="post" action="https://140.134.26.17:3333/reservation" enctype="multipart/form-data">
     <div style = "text-align:center;">
@@ -8,8 +9,10 @@
         <p><input type="submit" style = "font-size : 36px" name = "phoneBooking" value="電話預約"></p>
     </div>
 </form>
+<HR>
 <div style = "text-align:center;">
     <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
     <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
 </div>
+<HR>
 {% endblock %}

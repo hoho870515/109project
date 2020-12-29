@@ -1,25 +1,29 @@
-{% extends "layout.html" %}
+{% extends "navbar.html" %}
 
+{% block title %}Reservation{% endblock %}
 {% block body %}
 <div style = "text-align:center;">
     <p style = "font-size : 48px">再次確認預約資訊</p>
     <HR>
 </div>
-<form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
-    <div style = "text-align:center;">
-        <p id = "patientId" style = "font-size : 48px" data-content = "Something">身分證ID:</p>
+
+<div style = "text-align:center;">
+    <form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
+        <p id = "patientId" style = "font-size : 48px">身分證ID:</p>
         <p id = "patientName" style = "font-size : 48px">姓名:</text></p>
         <p id = "date" style = "font-size : 48px">日期:</text></p>
         <p id = "department" style = "font-size : 48px">科別:</text></p>
         <p id = "doctor" style = "font-size : 48px">醫生:</text></p>
         <p ><input type="submit" style = "font-size : 48px" name = "doubleDetermine" value="確認"></p>
-    </div>
-</form>
+    </form>
+</div>
+
+<HR>
 <div style = "text-align:center;">
     <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
     <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
 </div>
-
+<HR>
 <script>
     var patientData = JSON.parse('{{patientData | tojson | safe}}');
     console.log(patientData)
@@ -39,8 +43,5 @@
     
     var doctor = document.getElementById("doctor");
     doctor.textContent = "醫生: " +  patientData[4]
-    
-    // var number = document.getElementById("number");
-    // number.textContent = "掛號號碼: " +  patientData[5]
 </script>
 {% endblock %}

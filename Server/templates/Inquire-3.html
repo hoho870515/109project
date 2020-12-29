@@ -1,6 +1,6 @@
 {% extends "navbar.html" %}
 
-{% block title %} - Home{% endblock %}
+{% block title %}Inquire{% endblock %}
 {% block body %}
 <div class="container">
     {% for message in get_flashed_messages() %}
@@ -14,49 +14,64 @@
 
 <p style = "text-align:center;font-size : 48px">查詢/取消預約掛號</p>
 <HR>
-
 <form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
-<div style = "text-align:center;">
-    <p id = "patientId" style = "font-size : 48px" data-content = "Something">身分證ID:</p>
-    <p id = "patientName" style = "font-size : 48px">姓名:</text></p>
-    <p id = "date" style = "font-size : 48px">日期:</text></p>
-    <p id = "department" style = "font-size : 48px">科別:</text></p>
-    <p id = "doctor" style = "font-size : 48px">醫生:</text></p>
-    <p id = "number" style = "font-size : 48px">掛號號碼:</text></p>
+    <class id = "patientData">
+        <div style = "text-align:center;">
+            <p id = "patientId" style = "font-size : 48px" data-content = "Something">身分證ID:</p>
+            <p id = "patientName" style = "font-size : 48px">姓名:</text></p>
+            <p id = "date" style = "font-size : 48px">日期:</text></p>
+            <p id = "department" style = "font-size : 48px">科別:</text></p>
+            <p id = "doctor" style = "font-size : 48px">醫生:</text></p>
 
-
-    <input type="submit" style = "font-size : 48px" name = 'return' value="上一頁">
-    <input type="submit" style = "font-size : 48px" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
-</div>
+            <input type="submit" style = "font-size : 48px" name = 'return' value="上一頁">
+            <input type="submit" style = "font-size : 48px" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
+        </div>
+    </class>
+    <class id = "NoReservation">
+        <div style = "text-align:center;">
+            <p style = "font-size : 48px">您並沒有預約掛號</text></p>
+            <p><input type="submit" style = "font-size : 48px" name = "return" value="返回首頁"></p>    
+        </div>
+    </class>
 </form>
-
 <br>
+<HR>
 <div style = "text-align:center;">
     <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
     <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
 </div>
-
+<HR>
 <script>
     var patientData = JSON.parse('{{patientData | tojson | safe}}');
-    console.log(patientData)
-    console.log(patientData[0])
+    console.log("patientData " + patientData)
+    if (patientData !== null)
+    {
+        console.log(patientData[0])
+        document.getElementsByClassName("patientData").disabled = false;
+        document.getElementsByClassName("NoReservation").disabled = true;
 
-    var patientId = document.getElementById("patientId");
-    patientId.textContent = "身分證ID: " + patientData[0];
-    
-    var patientName = document.getElementById("patientName");
-    patientName.textContent = "姓名: " + patientData[1]
-    
-    var date = document.getElementById("date");
-    date.textContent = "日期: " +  patientData[2]
-    
-    var department = document.getElementById("department");
-    department.textContent = "科別: " +  patientData[3]
-    
-    var doctor = document.getElementById("doctor");
-    doctor.textContent = "醫生: " +  patientData[4]
-    
-    var number = document.getElementById("number");
-    number.textContent = "掛號號碼: " +  patientData[5]
+        var patientId = document.getElementById("patientId");
+        patientId.textContent = "身分證ID: " + patientData[0];
+        
+        var patientName = document.getElementById("patientName");
+        patientName.textContent = "姓名: " + patientData[1]
+        
+        var date = document.getElementById("date");
+        date.textContent = "日期: " +  patientData[2]
+        
+        var department = document.getElementById("department");
+        department.textContent = "科別: " +  patientData[3]
+        
+        var doctor = document.getElementById("doctor");
+        doctor.textContent = "醫生: " +  patientData[4]
+        
+        var number = document.getElementById("number");
+        number.textContent = "掛號號碼: " +  patientData[5]
+    }
+    else 
+    {
+        document.getElementsByClassName("NoReservation").disabled = false;
+        document.getElementsByClassName("patientData").disabled = true;
+    }
 </script>
 {% endblock %}

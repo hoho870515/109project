@@ -21,27 +21,30 @@ class dataBase:
         rows = 'yeeeee'
         try:
             cursor = self.db.cursor()
-            cursor.execute(sql, variable)#下指令，皆用變數儲存
             if instruct == 'select':
-                rows = cursor.fetchall()
+                print(sql, variable)
+                cursor.execute(sql, variable)#下指令，皆用變數儲存
+                rows = cursor.fetchone()
+                print('rows ', rows)
+                print(type(rows))
             elif instruct == 'insert':
+                print('sql : ', sql)
+                print('variable : ', variable)
+                cursor.execute(sql, variable)#下指令，皆用變數儲存
                 self.db.commit()
                 rows = 'successful insert'
             elif instruct == 'delete':
-                self.db.execute(sql)
+                cursor.execute(sql, variable)#下指令，皆用變數儲存
                 self.db.commit()
                 rows = 'successful delete'
             else:
                 rows = 'None'
+            return rows
         except Exception as e:
             print("Exeception occured:{}".format(e))
         finally:
             self.db.close()#關閉DataBase
         return rows
-    def getData(self):
-        sql = ("select * from patient")
-        result = self.open_db(sql, 'select')
-        return list(result[0])
     def reservationOnline(self, ID, name, date, department, doctor):
         sql = "insert into patient values (%s, %s, %s, %s, %s, %s)"
         result = self.open_db(sql, 'insert', (ID, name, date, department, doctor, 0))
@@ -50,11 +53,13 @@ class dataBase:
         sql = "select * from patient where ID = %s "#下指令，皆用變數儲存
         result = self.open_db(sql, 'select', ID)
         print('result', result)
-        return json.dumps(result)
-    def cancel():
+        if result:
+            return json.dumps(result)
+        else:
+            return None
+    def cancel(self, ID):
         sql = "delete from patient where ID = %s"
         result = self.open_db(sql,'delete', ID)
-        pass
 
 @app.route('/reservationOnline', methods = ['GET', 'POST'])
 def reservationOnline():
@@ -62,18 +67,23 @@ def reservationOnline():
         return render_template('reservation-Online-1.html')
     elif request.method == 'POST':
         data = list(request.form.keys())
+        print('data : ', data)
         if 'determine' in data:
-            ID = request.form.get('ID')
-            name = request.form.get('name')
+            ID = request.form.get('patientId')
+            name = request.form.get('patientName')
             date = request.form.get('date')
             department = request.form.get('department')
             doctor = request.form.get('doctor')
-            patientData = json.loads(json.dumps( list([ID, name, date, department, doctor]) ))
-            print(patientData)
-            return render_template('reservation-Online-2.html', patientData = patientData)
-        elif 'doubleDetermine':
+            
+            db = dataBase()
+            db.reservationOnline(ID, name, date, department, doctor)
+            
             return render_template('homePage.html')
-
+        elif 'return' in data:
+            print('return')
+            return render_template('homePage.html')
+        
+#預約掛號
 @app.route('/reservation', methods = ['GET', 'POST'])
 def reservation():
     if request.method == 'GET':
@@ -81,8 +91,9 @@ def reservation():
     elif request.method == 'POST':
         print(request)
         data = list(request.form.keys())
+        print(data)
         if 'onlineBooking' in data:
-            return render_template('reservation-Online-1.html', )
+            return render_template('reservation-Online-1.html')
         elif 'phoneBooking' in data:
             return render_template('reservation-Phone.html')
         else:
@@ -96,22 +107,31 @@ def check():
         print(request)
         data = list(request.form.keys())
         if 'determine' in data:
-            ID = request.form.get("ID")
-            name = request.form.get("name")
-            print('ID: ', ID, 'name: ', name)
+            ID = request.form.get("patientId")
+            name = request.form.get("patientName")
+            print('patientId: ', ID, 'patientName: ', name)
             db = dataBase()
-            patientData = json.loads(db.inquire(ID, name))[0]
-            print(patientData)
+            result = db.inquire(ID, name)
+            if not result:
+                patientData = None
+            else:
+                patientData = json.loads(result)[0]
+            
+            print('patientData : ', patientData)
             return render_template('Inquire-3.html', patientData = patientData)
         elif 'cancel' in data:
             print('cancel')
+            ID = request.form.get("patientId")
+            name = request.form.get("patientName")
+            db = dataBase()
+            db.cancel(ID)
             return render_template('homePage.html')
         elif 'return' in data:
             print('return')
             return render_template('Inquire-2.html')
         else:
             return render_template('Inquire-3.html')
-
+#查詢/取消預約掛號
 @app.route('/inquireOnline', methods = ['GET', 'POST'])
 def inquireOnline():
     if request.method == 'GET':
