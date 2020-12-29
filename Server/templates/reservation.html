@@ -1,18 +1,52 @@
 {% extends "navbar.html" %}
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>網路預約掛號</title>
 
 {% block title %}Reservation{% endblock %}
 {% block body %}
-<form method="post" action="https://140.134.26.17:3333/reservation" enctype="multipart/form-data">
-    <div style = "text-align:center;">
-        <p style = "font-size : 48px">預約掛號</p>
-        <p><input type="submit" style = "font-size : 36px" name = "onlineBooking" value="線上預約"></p>
-        <p><input type="submit" style = "font-size : 36px" name = "phoneBooking" value="電話預約"></p>
-    </div>
-</form>
-<HR>
-<div style = "text-align:center;">
-    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-</div>
-<HR>
+
+<style>
+
+.id_content01 {
+    height: 800px;
+}
+.id_header01 {
+    height: 100px;
+}
+</style>
+
+</head>
+
+<body>
+<div id="id_wrapper">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+		<form method="post" action="https://140.134.26.17:3333/reservation" enctype="multipart/form-data">
+		<div id="id_header" class="id_header01" style="text-align:center;">
+		</br>
+		<font style ="font-size:48px" face="DFKai-sb">網路預約掛號</font>
+		<br>
+		</div> 
+		
+		
+		<div id="id_content" class="id_content01" style="text-align:center;">
+		<button  type="submit" name="reservation" style="background: url(../static/Online_appointment.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px; right:-5px"></button>
+		</br></br></br></br>
+		<button  type="submit" name="reservation" style="background: url(../static/Phone_appointment.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px; right:-5px"></button>
+		</br></br></br></br></br></br></br>
+		</div> 
+		
+		
+		</form>
+		<footer id="id_footer" style="text-align:center;">
+			<font style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
+			<br>
+			<font style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>	
+		</footer>
+	</div> 
+</div> 
 {% endblock %}
+</body>
+</html>

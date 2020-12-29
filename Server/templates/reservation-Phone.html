@@ -1,25 +1,71 @@
 {% extends "navbar.html" %}
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>線上預約-電話預約</title>
 
 {% block title %}Reservation{% endblock %}
 {% block body %}
-<div style = "text-align:center;">
-    <p style = "font-size : 48px">線上預約</p>
-    <HR>
-    <p style = "font-size : 48px">電話預約</p>
-    <form action="tel:04-123456789"><button type="submit" style = "font-size : 48px">撥打 04-123456789</button></form>
-    <HR>
-    <p style = "font-size : 48px">診所人員會詢問您的</p>
-    <p style = "font-size : 48px">您的身分證+您的姓名+您的電話</p>
-    <p style = "font-size : 48px">看診日期+看什麼科別+哪位醫生</p>
-    <p style = "font-size : 48px">當資料告知完成後</p>
-    <p style = "font-size : 48px">診所人員即會告知您是否</p>
-    <p style = "font-size : 48px">預約完成</p>
-    
-</div>
-<HR>
-<div style = "text-align:center;">
-    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-</div>
-<HR>
+
+<style>
+
+.id_content01 {
+    height: 700px;
+}
+.id_header01 {
+    height: 150px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="id_wrapper">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+	
+		<div id="id_header" class="id_header01" style="text-align:center;">
+			<br><br>
+			<font style ="font-size:48px" face="DFKai-sb">線上預約</font>
+			<br>
+		</div> 
+		
+		
+		<div id="id_content" class="id_content01" style="text-align:center">
+			<HR>
+			<font style ="font-size:30px" face="DFKai-sb">
+			電話預約
+			</br>
+			04-123456789
+			</font>
+			<HR>
+			
+			<font style ="font-size:25px" face="DFKai-sb">
+			</br>
+			▼診所人員會詢問您的▼
+			</br>
+			〈身分證(ID) + 姓名(Name) + 電話(Phone)〉
+			</br>
+			〈看診日期(Date) + 哪種科別(Department) + 哪位醫生(Doctor)〉
+			</br>
+			當資料告知完成後  診所人員即會告知您是否預約完成
+			</br></br></br>
+			</font>
+			
+			<form action="tel:04-123456789">
+			<button  type="submit" name="reservation" style="background: url(../static/Call.png) no-repeat; border-style:none; width:170px; height:100px; position:relative;top:20px; right:-5;"></button>
+			</form>
+			
+			<br><br>
+		</div> 
+		
+		<footer id="id_footer" style="text-align:center;">
+				<font style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
+				<br>
+				<font style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>	
+		</footer>  
+	</div> 
+</div> 
 {% endblock %}
+</body>
+</html>

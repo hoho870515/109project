@@ -1,6 +1,14 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>模擬線上預約系統</title>
+
+
 {% extends "navbar.html" %}
 {% block title %}HomePage{% endblock %}
 {% block head %}
+
 <style>
 	article 	{ width: 500%;
 		  float: right;
@@ -26,24 +34,31 @@
 				} 
 		}
 </style>
+
 {% endblock %}
 
 {% block body %}
-<form method="post" action="https://140.134.26.17:3333/" enctype="multipart/form-data">
-	<p style = "text-align:center;font-size:2cm;">模擬線上預約系統</p>
-	<div style="background: url(../static/Home.png) no-repeat;width:100%;height:1200px;background-position:50% -1000%; text-align:center">
-	<br>
-	<button  type="submit" name="reservation" style="background: url(../static/Online_appointment_registration.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:230px"></button>
-	<br>
-	<button  type="submit" name="inquireOnline" style="background: url(../static/Online_inquiry.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:350px;right:20"></button>
-	<button  type="submit" name="description" style="background: url(../static/Systems_manual.png) no-repeat; border-style:none; width: 400px; height:400px; position:relative;top:350px;left:20"></button>
-	<br>
-	</div>
-</form>
-<HR>
-<div style = "text-align:center;">
-	<p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-	<p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-</div>
-<HR>
+
+
+<body>
+	<form method="post" action="https://140.134.26.17:3333/" enctype="multipart/form-data">
+		<div style="background: url(../static/Home.png) no-repeat;width:100%;height:1200px;background-position:50% -1000%; text-align:center">
+			<font size="48px" face="DFKai-sb">模擬線上預約系統</font>
+			<br>
+			<button  type="submit" name="reservation" style="background: url(../static/Online_appointment_registration.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:160px; right:-47"></button>
+			<br>
+			<button  type="submit" name="inquireOnline" style="background: url(../static/Online_inquiry.png) no-repeat; border-style:none; width: 366px; height:366px; position:relative;top:150px;right:-25"></button>
+			<button  type="submit" name="description" style="background: url(../static/Systems_manual.png) no-repeat; border-style:none; width: 350px; height:366px; position:relative;top:152px;left:50"></button>	
+			<br><br>
+		</div>
+	</form>
+
+	<footer id="id_footer" style="text-align:center;">
+		<font style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font><br>
+		<font style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>	
+	</footer>
+	
 {% endblock %}
+</body>
+</html>
+ 

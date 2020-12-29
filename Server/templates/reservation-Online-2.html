@@ -1,29 +1,13 @@
 {% extends "navbar.html" %}
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>確認預約資訊</title>
 
 {% block title %}Reservation{% endblock %}
 {% block body %}
-<div style = "text-align:center;">
-    <p style = "font-size : 48px">再次確認預約資訊</p>
-    <HR>
-</div>
 
-<div style = "text-align:center;">
-    <form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
-        <p id = "patientId" style = "font-size : 48px">身分證ID:</p>
-        <p id = "patientName" style = "font-size : 48px">姓名:</text></p>
-        <p id = "date" style = "font-size : 48px">日期:</text></p>
-        <p id = "department" style = "font-size : 48px">科別:</text></p>
-        <p id = "doctor" style = "font-size : 48px">醫生:</text></p>
-        <p ><input type="submit" style = "font-size : 48px" name = "doubleDetermine" value="確認"></p>
-    </form>
-</div>
-
-<HR>
-<div style = "text-align:center;">
-    <p style = "font-size : 48px">【這是一個方便生活、節約時間】</p>
-    <p style = "font-size : 48px">【並帶給人們美好體驗的貼心系統】</p>
-</div>
-<HR>
 <script>
     var patientData = JSON.parse('{{patientData | tojson | safe}}');
     console.log(patientData)
@@ -44,4 +28,57 @@
     var doctor = document.getElementById("doctor");
     doctor.textContent = "醫生: " +  patientData[4]
 </script>
+
+<style>
+.id_content01 {
+    height: 700px;
+}
+.id_header01 {
+    height: 200px;
+}
+.id_bottom {
+	position: fixed;
+	height: 200px;
+	width: 2150px;
+	left: 10px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="id_wrapper">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+		<div id="id_header" class="id_header01" style="text-align:center;" >
+			<br>
+			<font style="font-size:48px" face="DFKai-sb">確認預約資訊</font>
+		</div>
+		
+		
+		<div id="id_content" class="id_content01" style="text-align:center;">
+		<form method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
+			<font style="font-size:35px" face="DFKai-sb">身分證ID:範例</font>
+			<br>
+			<font style="font-size:35px" face="DFKai-sb">姓名:範例</font>
+			<br>
+			<font style="font-size:35px" face="DFKai-sb">科別:範例</font>
+			<br>
+			<font style="font-size:35px" face="DFKai-sb">醫生:範例</font>
+			<br><br><br><br>
+			<div>
+				<button  type="submit" name="reservation"  style="background: url(../static/check.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:160px; right:-100;"></button>
+			</div>
+		</form>
+		</div>
+		
+		
+		<footer id="id_footer" style="text-align:center;" style="text-align:center;">
+			<font style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
+			<br>
+			<font style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>	
+		</footer> 
+	</div>
+</div>
 {% endblock %}
+</body>
+</html>
