@@ -1,12 +1,7 @@
 {% extends "navbar.html" %}
-<html>
 
-<head>
-<meta charset="utf-8">
-<title>線上預約-電話預約</title>
-
-{% block title %}Reservation{% endblock %}
-{% block body %}
+{% block title %} - 線上預約-電話預約{% endblock %}
+{% block haed %}
 
 <style>
 
@@ -18,29 +13,29 @@
 }
 
 </style>
-</head>
+{% endblock %}
 
-<body>
+{% block body %}
 <div id="id_wrapper">
 	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
-	
 		<div id="id_header" class="id_header01" style="text-align:center;">
 			<br><br>
-			<font style ="font-size:48px" face="DFKai-sb">線上預約</font>
+			<HR>
+			<p style ="font-size:48px" face="DFKai-sb">線上預約</p>
+			<HR>
 			<br>
 		</div> 
-		
-		
 		<div id="id_content" class="id_content01" style="text-align:center">
-			<HR>
-			<font style ="font-size:30px" face="DFKai-sb">
+			<p style ="font-size:30px" face="DFKai-sb">
 			電話預約
 			</br>
 			04-123456789
-			</font>
-			<HR>
+			</p>
+			<form action="tel:04-123456789">
+				<button type="submit" style="background: url(../static/Call.png) no-repeat; border-style:none; width:170px; height:100px; position:relative;top:20px; right:-5;"></button>
+			</form>
 			
-			<font style ="font-size:25px" face="DFKai-sb">
+			<p style ="font-size:25px" face="DFKai-sb">
 			</br>
 			▼診所人員會詢問您的▼
 			</br>
@@ -50,22 +45,9 @@
 			</br>
 			當資料告知完成後  診所人員即會告知您是否預約完成
 			</br></br></br>
-			</font>
-			
-			<form action="tel:04-123456789">
-			<button  type="submit" name="reservation" style="background: url(../static/Call.png) no-repeat; border-style:none; width:170px; height:100px; position:relative;top:20px; right:-5;"></button>
-			</form>
-			
+			</p>
 			<br><br>
 		</div> 
-		
-		<footer id="id_footer" style="text-align:center;">
-				<font style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
-				<br>
-				<font style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>	
-		</footer>  
 	</div> 
 </div> 
 {% endblock %}
-</body>
-</html>

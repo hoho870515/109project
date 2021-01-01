@@ -1,16 +1,9 @@
-<html>
-
-<head>
-<meta charset="utf-8">
-<title>線上查詢</title>
-
-
 {% extends "navbar.html" %}
 
-{% block title %}Inquire{% endblock %}
-{% block body %}
+{% block title %} - 線上查詢{% endblock %}
 
 
+{% block head%}
 <style>
 
 .id_content01 {
@@ -20,37 +13,26 @@
     height: 50px;
 }
 </style>
-
-</head>
-
-<body>
+{% endblock %}
+{% block body %}
 <div id="id_wrapper">
 	
 	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
 			</br>
-			<font style="font-size:48px" face="DFKai-sb">線上查詢</font>
+			<p style="font-size:48px" face="DFKai-sb">線上查詢</p>
 		</div> 
 		
 		<div id="id_content" class="id_content01" style = "text-align:center;">
-		<form method="post" action="https://140.134.26.17:3333/inquireOnline" enctype="multipart/form-data">
-			</br>
-			<button  type="submit" name="reservation" style="background: url(../static/Appointment_registration.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:50px; right:-47"></button>
-			</br>
-			<button  type="submit" name="reservation" style="background: url(../static/Progress.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:50px; right:-47"></button>
-			</br>
-		</form>
+			<form method="post" action="https://140.134.26.17:3333/inquireOnline" enctype="multipart/form-data">
+				</br>
+				<button  type="submit" name="inquireOrCancel" style="background: url(../static/Appointment_registration.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:50px; right:-47"></button>
+				</br>
+				<button  type="submit" name="inquireCurrent" style="background: url(../static/Progress.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:50px; right:-47"></button>
+				</br>
+			</form>
 		</div>
-		
-		<footer id="id_footer" style="text-align:center;">
-			<font style="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
-			</br>
-			<font style="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>
-		</footer>
-	
 	</div>
 </div>
 {% endblock %}
-</body>
-</html>

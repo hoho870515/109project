@@ -3,7 +3,8 @@
 {% block head %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %}test{% endblock %}</title>
+
+<title>模擬線上預約系統{% block title %}{% endblock %}</title>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
@@ -46,4 +47,12 @@
     </div>
   </div>
 </nav>
+{% endblock %}
+
+{% block footer %}
+<footer id="id_footer" style="text-align:center;">
+  <p style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</p>
+  <br>
+  <p style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</p>	
+</footer> 
 {% endblock %}

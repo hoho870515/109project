@@ -1,12 +1,9 @@
 {% extends "navbar.html" %}
-<html>
-<head>
-<meta charset="utf-8">
-<title>線上觀看現場就診進度</title>
 
-{% block title %}Inquire{% endblock %}
-{% block body %}
+{% block title %} - 線上觀看現場就診進度{% endblock %}
 
+
+{% block head %}
 <style>
 
 .id_content01 {
@@ -17,16 +14,16 @@
 }
 </style>
 
-</head>
+{# endblock %}
 
-<body>
+{% block body %}
 <div id="id_wrapper">
 	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
 
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
 			</br>
-			<font style="font-size:48px" face="DFKai-sb">線上觀看現場就診進度</font>
+			<p style="font-size:48px" face="DFKai-sb">線上觀看現場就診進度</p>
 			<HR>
 		</div> 
 		
@@ -34,20 +31,11 @@
 		<div id="id_content" class="id_content01" style = "text-align:center;" face="DFKai-sb">
 			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
 				<p style = "font-size : 35px"  face="DFKai-sb">查詢結果</text></p>
-				<p><input type="button" value="上一頁"></p>
+				<p><input type="button" name = "return" value="上一頁"></p>
 			</form>
 		</div>
-		
-		
-		<footer id="id_footer" style="text-align:center;">
-			<font style="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
-			</br>
-			<font style="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>
-		</footer>
 	
 	</div>
 	
 </div>
 {% endblock %}
-</body>
-</html>

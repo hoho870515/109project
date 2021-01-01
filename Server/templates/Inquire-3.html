@@ -1,12 +1,67 @@
 {% extends "navbar.html" %}
-<html>
-<head>
-<meta charset="utf-8">
-<title>查詢/取消預約掛號</title>
 
-{% block title %}Inquire{% endblock %}
+{% block title %} - 查詢/取消預約掛號{% endblock %}
+
+
+{% block head %}
+<style>
+
+.id_content01 {
+    height: 700px;
+}
+.id_header01 {
+    height: 100px;
+}
+</style>
+
+{% endblock %}
+
 {% block body %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <br>
+    <div class="alert alert-warning alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ message }}
+    </div>
+    {% endfor %}
+</div>
 
+<div id="id_wrapper">
+	
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
+
+		<div id="id_header" class="id_header01" style="text-align:center;">
+			</br>
+			<p style="font-size:48px" face="DFKai-sb">查詢/取消預約掛號</p>
+			<HR>
+		</div> 
+				
+		<div id="id_content" class="id_content01" style = "text-align:center;" face="DFKai-sb">
+			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
+			
+				<p id = "patientId" style = "font-size : 35px" data-content = "Something"  face="DFKai-sb">身分證ID:</p>
+				<p id = "patientName" style = "font-size : 35px"  face="DFKai-sb">姓名:</text></p>
+				<p id = "date" style = "font-size : 35px"  face="DFKai-sb">日期:</text></p>
+				<p id = "department" style = "font-size : 35px"  face="DFKai-sb">科別:</text></p>
+				<p id = "doctor" style = "font-size : 35px"  face="DFKai-sb">醫生:</text></p>
+				<p id = "number" style = "font-size : 35px"  face="DFKai-sb">掛號號碼:</text></p>
+				
+				
+				<input type="submit" style = "font-size : 40px" face="DFKai-sb" name = 'return' value="上一頁">
+				<input type="submit" style = "font-size : 40px" face="DFKai-sb" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
+			
+				<class id = "NoReservation">
+				<div style = "text-align:center;">
+					<p style = "font-size : 48px">您並沒有預約掛號</text></p>
+					<p><input type="submit" style = "font-size : 48px" name = "return" value="返回首頁"></p>    
+				</div>
+				</class>	
+			</form>
+		</div>
+	
+	</div>
+</div>
 
 <script>
     var patientData = JSON.parse('{{patientData | tojson | safe}}');
@@ -41,77 +96,4 @@
         document.getElementsByClassName("patientData").disabled = true;
     }
 </script>
-
-
-<div class="container">
-    {% for message in get_flashed_messages() %}
-    <br>
-    <div class="alert alert-warning alert-dismissible fade show">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      {{ message }}
-    </div>
-    {% endfor %}
-</div>
-
-<style>
-
-.id_content01 {
-    height: 700px;
-}
-.id_header01 {
-    height: 100px;
-}
-</style>
-
-</head>
-
-<body>
-<div id="id_wrapper">
-	
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
-	
-
-		<div id="id_header" class="id_header01" style="text-align:center;">
-			</br>
-			<font style="font-size:48px" face="DFKai-sb">查詢/取消預約掛號</font>
-			<HR>
-		</div> 
-		
-		
-		<div id="id_content" class="id_content01" style = "text-align:center;" face="DFKai-sb">
-			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
-			
-				<p id = "patientId" style = "font-size : 35px" data-content = "Something"  face="DFKai-sb">身分證ID:</p>
-				<p id = "patientName" style = "font-size : 35px"  face="DFKai-sb">姓名:</text></p>
-				<p id = "date" style = "font-size : 35px"  face="DFKai-sb">日期:</text></p>
-				<p id = "department" style = "font-size : 35px"  face="DFKai-sb">科別:</text></p>
-				<p id = "doctor" style = "font-size : 35px"  face="DFKai-sb">醫生:</text></p>
-				<p id = "number" style = "font-size : 35px"  face="DFKai-sb">掛號號碼:</text></p>
-				
-				
-				<input type="submit" style = "font-size : 40px" face="DFKai-sb" name = 'return' value="上一頁">
-				<input type="submit" style = "font-size : 40px" face="DFKai-sb" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
-			
-				<class id = "NoReservation">
-				<div style = "text-align:center;">
-					<p style = "font-size : 48px">您並沒有預約掛號</text></p>
-					<p><input type="submit" style = "font-size : 48px" name = "return" value="返回首頁"></p>    
-				</div>
-				</class>
-			
-			</form>
-		</div>
-		
-		<footer id="id_footer" style="text-align:center;">
-			<font style="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
-			</br>
-			<font style="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>
-		</footer>
-	
-	</div>
-</div>
 {% endblock %}
-</body>
-</html>
-
-

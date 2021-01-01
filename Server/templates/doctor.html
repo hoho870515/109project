@@ -1,8 +1,7 @@
-<html>
+{% extends "navbar.html" %}
 
-<head>
-<meta charset="utf-8">
-<title>更新就診號碼</title>
+{% block title %} - Description{% endblock %}
+{% block head%}
 <style>
 
 .id_content01 {
@@ -12,17 +11,16 @@
     height: 200px;
 }
 </style>
-</head>
+{% endblock}
 
-<body>
-
+{% block body %}
 <div id="id_wrapper">
 
 	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">	
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
 			</br>
-			<font style ="font-size:48px" face="DFKai-sb">更新就診號碼</font><br>
+			<p style ="font-size:48px" face="DFKai-sb">更新就診號碼</p><br>
 		</div> 
 
 
@@ -34,16 +32,12 @@
 
 
 		<footer id="id_footer" style="text-align:center;">
-			<font style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</font>
+			<p style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</p>
 			<br>
-			<font style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</font>	
+			<p style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</p>	
 		</footer> 
 
 	</div> 
 	
 </div> 
-</body>
-</html>
-
-
-
+{% endblock}
