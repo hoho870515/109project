@@ -10,7 +10,25 @@
     height: 700px;
 }
 .id_header01 {
-    height: 100px;
+    height: 200px;
+}
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p2 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 30px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
 }
 </style>
 
@@ -29,32 +47,32 @@
 
 <div id="id_wrapper">
 	
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
-			</br>
-			<p style="font-size:48px" face="DFKai-sb">查詢/取消預約掛號</p>
+			<br>
+			<p class="p1">查詢/取消預約掛號</p>
 			<HR>
 		</div> 
 				
-		<div id="id_content" class="id_content01" style = "text-align:center;" face="DFKai-sb">
+		<div id="id_content" class="id_content01" style = "text-align:center;">
 			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
 			
-				<p id = "patientId" style = "font-size : 35px" data-content = "Something"  face="DFKai-sb">身分證ID:</p>
-				<p id = "patientName" style = "font-size : 35px"  face="DFKai-sb">姓名:</text></p>
-				<p id = "date" style = "font-size : 35px"  face="DFKai-sb">日期:</text></p>
-				<p id = "department" style = "font-size : 35px"  face="DFKai-sb">科別:</text></p>
-				<p id = "doctor" style = "font-size : 35px"  face="DFKai-sb">醫生:</text></p>
-				<p id = "number" style = "font-size : 35px"  face="DFKai-sb">掛號號碼:</text></p>
+				<p class="p2">身分證ID:</p>
+				<p class="p2">姓名:</text></p>
+				<p class="p2">日期:</text></p>
+				<p class="p2">科別:</text></p>
+				<p class="p2">醫生:</text></p>
+				<p class="p2">掛號號碼:</text></p>
 				
 				
-				<input type="submit" style = "font-size : 40px" face="DFKai-sb" name = 'return' value="上一頁">
-				<input type="submit" style = "font-size : 40px" face="DFKai-sb" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
+				<input type="submit" class="p2" name = 'return' value="上一頁">
+				<input type="submit" class="p2" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
 			
 				<class id = "NoReservation">
 				<div style = "text-align:center;">
-					<p style = "font-size : 48px">您並沒有預約掛號</text></p>
-					<p><input type="submit" style = "font-size : 48px" name = "return" value="返回首頁"></p>    
+					<p class="p2">您並沒有預約掛號</text></p>
+					<p><input type="submit" class="p2" name="return" value="返回首頁"></p>    
 				</div>
 				</class>	
 			</form>

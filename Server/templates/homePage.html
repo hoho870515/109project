@@ -5,43 +5,78 @@
 {% block head %}
 
 <style>
-	article 	{ width: 500%;
-		  float: right;
-		  margin:  0 0 50px;
-		  color: #FFFFFF;
-                  } 
-	sidebar		{ width: 40%;
-		  float: left;
-		  margin: 0 0 50px;
-		  color: #FFFFFF;
-                  } 
-	@media screen and(min-width: 800px)
-		{
-		article { width: 100px;
-				float: right;
-				margin:  0 0 50px;
-				color: #FFFFFF;
-				} 
-		sidebar	{ width: 300px;
-				float: left;
-				margin:  0 0 50px;
-				color: #FFFFFF;
-				} 
-		}
+.id_content01 {
+    height: 1000px;
+}
+
+.id_header01 {
+    height: 200px;
+}
+
+article { 
+	width: 500%;
+	float: right;
+	margin:  0 0 50px;
+	color: #FFFFFF;
+} 
+
+sidebar	{ 
+	width: 40%;
+	float: left;
+	margin: 0 0 50px;
+	color: #FFFFFF;
+} 
+
+@media screen and(min-width: 800px)
+
+article { 
+	width: 100px;
+	float: right;
+	margin:  0 0 50px;
+	color: #FFFFFF;
+} 
+
+sidebar	{ 
+	width: 300px;
+	float: left;
+	margin:  0 0 50px;
+	color: #FFFFFF;
+} 
+
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
+}
 </style>
 
 {% endblock %}
 
 {% block body %}
-	<form method="post" action="https://140.134.26.17:3333/" enctype="multipart/form-data">
+<form method="post" action="https://140.134.26.17:3333/" enctype="multipart/form-data">
+	<div id="id_wrapper">
 		<div style="background: url(../static/Home.png) no-repeat;width:100%;height:1200px;background-position:50% -1000%; text-align:center">
-			<p size="48px" face="DFKai-sb">模擬線上預約系統</p>
-			<br>
-			<button  type="submit" name="reservation" style="background: url(../static/Online_appointment_registration.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:160px; right:-47"></button>
-			<br>
-			<button  type="submit" name="inquireOnline" style="background: url(../static/Online_inquiry.png) no-repeat; border-style:none; width: 366px; height:366px; position:relative;top:150px;right:-25"></button>
-			<button  type="submit" name="description" style="background: url(../static/Systems_manual.png) no-repeat; border-style:none; width: 350px; height:366px; position:relative;top:152px;left:50"></button>	
-			<br><br>
+			<div id="id_header" class="id_header01">
+				<br>
+				<p class="p1">模擬線上預約系統</p>
+			</div> 
+			
+			<div id="id_content;" class="id_content01">
+				<button  type="submit" name="reservation" style="background: url(../static/Online_appointment_registration.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:200px;"></button>
+				<br>
+				<button  type="submit" name="inquireOnline" style="background: url(../static/Online_inquiry.png) no-repeat; border-style:none; width: 280px; height:280px; position:relative;top:200px;right:30"></button>
+				<button  type="submit" name="description" style="background: url(../static/Systems_manual.png) no-repeat; border-style:none; width: 280px; height:280px; position:relative;top:200px;left:30"></button>	
+				<br><br>
+			</div>
+			
 		</div>
-	</form>
+	</div>
+</form>
 {% endblock %}

@@ -9,44 +9,59 @@
     height: 700px;
 }
 .id_header01 {
-    height: 150px;
+    height: 200px;
 }
-
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p2 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 30px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
+}
 </style>
 {% endblock %}
 
 {% block body %}
 <div id="id_wrapper">
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 		<div id="id_header" class="id_header01" style="text-align:center;">
-			<br><br>
-			<HR>
-			<p style ="font-size:48px" face="DFKai-sb">線上預約</p>
-			<HR>
 			<br>
+			<HR>
+			<p class="p1">線上預約</p>
+			<HR>
 		</div> 
 		<div id="id_content" class="id_content01" style="text-align:center">
-			<p style ="font-size:30px" face="DFKai-sb">
+			<p class="p2">
+			<br>
+			▼診所人員會詢問您的▼
+			<br>
+			〈身分證(ID) + 姓名(Name) + 電話(Phone)〉
+			<br>
+			〈看診日期(Date) + 哪種科別(Department) + 哪位醫生(Doctor)〉
+			<br>
+			當資料告知完成後  診所人員即會告知您是否預約完成
+			<br><br><br>
+			</p>
+			
+			<p class="p2">
 			電話預約
-			</br>
+			<br>
 			04-123456789
 			</p>
 			<form action="tel:04-123456789">
 				<button type="submit" style="background: url(../static/Call.png) no-repeat; border-style:none; width:170px; height:100px; position:relative;top:20px; right:-5;"></button>
 			</form>
-			
-			<p style ="font-size:25px" face="DFKai-sb">
-			</br>
-			▼診所人員會詢問您的▼
-			</br>
-			〈身分證(ID) + 姓名(Name) + 電話(Phone)〉
-			</br>
-			〈看診日期(Date) + 哪種科別(Department) + 哪位醫生(Doctor)〉
-			</br>
-			當資料告知完成後  診所人員即會告知您是否預約完成
-			</br></br></br>
-			</p>
-			<br><br>
 		</div> 
 	</div> 
 </div> 

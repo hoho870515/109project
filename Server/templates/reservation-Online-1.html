@@ -6,10 +6,10 @@
 
 <style>
 .id_content01 {
-    height: 900px;
+    height: 1000px;
 }
 .id_header01 {
-    height: 80px;
+    height: 180px;
 }
 .id_bottom {
 	position: fixed;
@@ -17,7 +17,24 @@
 	width: 2150px;
 	left: 10px;
 }
-
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p2 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 30px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
+}
 </style>
 {% endblock %}
 
@@ -51,17 +68,16 @@
 </script>
 
 <div id="id_wrapper">
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 		<div id="id_header" class="id_header01" style="text-align:center;" >
 			</br>
-			<p style="font-size:48px" face="DFKai-sb">線上預約-掛號</p>
+			<p class="p1">線上預約-掛號</p>
 			<HR>
 		</div>
 		
 		
-		<div id="id_content" class="id_content01" style="text-align:center;" face="DFKai-sb">
-			</br>
-			<p style = "font-size:25px" face="DFKai-sb" color="#000000">
+		<div id="id_content" class="id_content01">
+			<p class="p2">
 			請選擇想預約的掛號日期
 			<br>
 			科別和醫師，填寫基本資料後
@@ -72,27 +88,27 @@
 			<HR>	
 			<form name = "patientData", method="post" action="https://140.134.26.17:3333/reservationOnline" enctype="multipart/form-data">
 				<div style = "text-align:center;" face="DFKai-sb">
-					<p style = "font-size : 35px" face="DFKai-sb">身分證:<input type="text" style = "font-size:20px;position:relative;right:-5px;" face="DFKai-sb" name="patientId"></p>
-					<p style = "font-size : 35px" face="DFKai-sb">姓名:<input type="text" style = "font-size:20px;position:relative;right:-5px;" face="DFKai-sb" name="patientName"></p>
-					<p style = "font-size : 35px" face="DFKai-sb">日期:<input type="date" style = "font-size:20px;position:relative;right:-5px;" face="DFKai-sb" name="date"></p>
+					<p class="p2">身分證: <input type="text" style = "font-size:20px;position:relative;right:-5px;" face="DFKai-sb" name="patientId"></p>
+					<p class="p2">姓  名: <input type="text" style = "font-size:20px;position:relative;right:-12px;" face="DFKai-sb" name="patientName"></p>
+					<p class="p2">日期: <input type="date" style = "font-size:20px;position:relative;right:-5px;" face="DFKai-sb" name="date"></p>
 
-					<p style = "font-size : 35px">科別:
-					<select name = "department" style = "font-size : 35px" face="DFKai-sb">
+					<p class="p2">科別: 
+					<select name = "department" class="p2">
 						<option>請選擇科別</option>
 						<option>Dental</option>
 						<option>Pediatrics</option>
 						<option>Cardiology</option>
 					</select></p>
 
-					<p style = "font-size : 35px">醫生:
-					<select name = "doctor" style = "font-size : 35px" face="DFKai-sb">
+					<p class="p2">醫生: 
+					<select name = "doctor" class="p2">
 						<option>請選擇醫生</option>
 						<option>Denver</option>
 						<option>Allen</option>
 						<option>Ray</option>
 					</select></p>
-
-					<p><input type="submit" style = "font-size : 48px" name = "determine" value="確定" onclick = "return doubleDetermine()"></p>
+					<br>
+					<p><input type="submit" class="p2" style = "font-size : 40px" name = "determine" value="確定" onclick = "return doubleDetermine()"></p>
 				</div>
 			</form>
 		</div>

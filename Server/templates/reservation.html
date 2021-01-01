@@ -7,10 +7,22 @@
 <style>
 
 .id_content01 {
-    height: 800px;
+    height: 1000px;
 }
 .id_header01 {
-    height: 100px;
+    height: 200px;
+}
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
 }
 </style>
 
@@ -18,20 +30,19 @@
 
 {% block body %}
 <div id="id_wrapper">
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 		<form method="post" action="https://140.134.26.17:3333/reservation" enctype="multipart/form-data">
 			<div id="id_header" class="id_header01" style="text-align:center;">
-				</br>
-				<p style ="font-size:48px" face="DFKai-sb">網路預約掛號</p>
 				<br>
+				<p class="p1">網路預約掛號</p>
+				<p><br><br><br><br></p>
 			</div> 
 			
 			
 			<div id="id_content" class="id_content01" style="text-align:center;">
-				<button  type="submit" name="onlineBooking" style="background: url(../static/Online_appointment.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px; right:-5px"></button>
-				</br></br></br></br>
-				<button  type="submit" name="phoneBooking" style="background: url(../static/Phone_appointment.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px; right:-5px"></button>
-				</br></br></br></br></br></br></br>
+				<button  type="submit" name="onlineBooking" style="background: url(../static/Online_appointment.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px;"></button>
+				<p><br><br><br><br></p>
+				<button  type="submit" name="phoneBooking" style="background: url(../static/Phone_appointment.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px;"></button>
 			</div> 
 		</form>
 	</div> 

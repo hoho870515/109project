@@ -10,29 +10,41 @@
     height: 900px;
 }
 .id_header01 {
-    height: 50px;
+    height: 150px;
 }
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
+}
+
 </style>
 {% endblock %}
 {% block body %}
 <div id="id_wrapper">
 	
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
-			</br>
-			<p style="font-size:48px" face="DFKai-sb">線上查詢</p>
+			<br>
+			<p class="p1">線上查詢</p>
 		</div> 
 		
 		<div id="id_content" class="id_content01" style = "text-align:center;">
 			<form method="post" action="https://140.134.26.17:3333/inquireOnline" enctype="multipart/form-data">
-				</br>
-				<button  type="submit" name="inquireOrCancel" style="background: url(../static/Appointment_registration.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:50px; right:-47"></button>
-				</br>
-				<button  type="submit" name="inquireCurrent" style="background: url(../static/Progress.png) no-repeat; border-style:none; width:366px; height:366px; position:relative;top:50px; right:-47"></button>
-				</br>
+				<button  type="submit" name="inquireOrCancel" style="background: url(../static/Appointment_registration.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px;"></button>
+				<p><br><br><br><br></p>
+				<button  type="submit" name="inquireCurrent" style="background: url(../static/Progress.png) no-repeat; border-style:none; width:280px; height:280px; position:relative;top:50px;"></button>
 			</form>
 		</div>
+		
 	</div>
 </div>
 {% endblock %}

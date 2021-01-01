@@ -6,26 +6,44 @@
 <style>
 
 .id_content01 {
-    height: 500px;
+    height: 800px;
 }
 .id_header01 {
     height: 200px;
+}
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p2 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 30px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
 }
 </style>
 {% endblock %}
 {% block body %}
 <div id="id_wrapper">
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat; background-position:center; background-size:2200px 3500px">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
 			</br>
-			<p style="font-size:48px" face="DFKai-sb">查詢/取消預約掛號</p>
+			<p class="p1">查詢/取消預約掛號</p>
 		</div> 	
 		<div id="id_content" class="id_content01" style = "text-align:center;">
 			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
-				<p style="font-size:35px" face="DFKai-sb">身分證: <input type="text" style = "font-size:20px;position:relative;right:-5px;" name="patientId"> </p><br>
-				<p style="font-size:35px" face="DFKai-sb">姓  名: <input type="text" style = "font-size:20px;position:relative;right:-13px;" name="patientName"> </p><br>
-				<button type="submit" name="determine" style="background:url(../static/check.png) no-repeat;border-style:none;width:366px;height:366px;position:relative;top:50px;right:-95px;"></button>
+				<p class="p2">身分證: <input type="text" style = "font-size:20px;position:relative;right:-5px;" name="patientId"> </p>
+				<p class="p2">姓  名: <input type="text" style = "font-size:20px;position:relative;right:-13px;" name="patientName"> </p><br>
+				<button type="submit" name="determine" style="background:url(../static/check.png) no-repeat;border-style:none;width:170px;height:100px;position:relative;top:50px;"></button>
 			</form>
 		</div>
 	</div> 

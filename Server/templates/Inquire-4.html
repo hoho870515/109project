@@ -10,7 +10,25 @@
     height: 700px;
 }
 .id_header01 {
-    height: 100px;
+    height: 200px;
+}
+.p1 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 48px;
+	text-align: center;
+}
+.p2 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 30px;
+	text-align: center;
+}
+.p4 {
+	font-family: DFKai-sb;
+	color: #000000;
+	font-size: 25px;
+	text-align: center;
 }
 </style>
 
@@ -18,20 +36,21 @@
 
 {% block body %}
 <div id="id_wrapper">
-	<div style="background: url(../static/pexels-la-miko-3616764.jpg) no-repeat;background-position:center ; background-size:cover">
+	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
 
 
 		<div id="id_header" class="id_header01" style="text-align:center;">
-			</br>
-			<p style="font-size:48px" face="DFKai-sb">線上觀看現場就診進度</p>
+			<br>
+			<p class="p1">線上觀看現場就診進度</p>
 			<HR>
 		</div> 
 		
 		
-		<div id="id_content" class="id_content01" style = "text-align:center;" face="DFKai-sb">
+		<div id="id_content" class="id_content01" style = "text-align:center;">
 			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
-				<p style = "font-size : 35px"  face="DFKai-sb">查詢結果</text></p>
-				<p><input type="button" name = "return" value="上一頁"></p>
+				<p class="p2">查詢結果</text></p>
+				<p><br><br><br></p>
+				<p><input type="button" class="p2" style="font-size:35px" name = "return" value="上一頁"></p>
 			</form>
 		</div>
 	
