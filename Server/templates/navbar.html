@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 
 {% block head %}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>模擬線上預約系統{% block title %}{% endblock %}</title>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
@@ -14,7 +13,11 @@
 <!-- <script src="{{ url_for('static', filename='wowbook/js/jquery-1.9.1.min.js') }}"></script> -->
 <!-- <script src="{{ url_for('static', filename='wowbook/wow_book.min.js') }}"></script> -->
 <!-- <link rel="stylesheet" href="{{ url_for('static', filename='wowbook/css/wow_book.css') }}"> -->
+
+<title>模擬線上預約系統{% block title %}{% endblock %}</title>
 {% endblock %}
+
+
 
 {% block body %}
 <!--功能列-->
@@ -54,4 +57,11 @@
   <p style ="font-size:25px" face="DFKai-sb">★這是一個方便生活、節約時間★</p>
   <p style ="font-size:25px" face="DFKai-sb">★並帶給人們美好體驗的貼心系統★</p>	
 </footer> 
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  var patientData = JSON.parse('{{patientData | tojson | safe}}');
+  console.log("patientData " + patientData)
+</script>
 {% endblock %}

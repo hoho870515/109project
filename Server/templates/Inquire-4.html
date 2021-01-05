@@ -1,9 +1,9 @@
 {% extends "navbar.html" %}
 
-{% block title %} - 線上觀看現場就診進度{% endblock %}
-
 
 {% block head %}
+{{ super() }}
+
 <style>
 
 .id_content01 {
@@ -33,6 +33,7 @@
 </style>
 
 {# endblock %}
+{% block title %} - 線上觀看現場就診進度{% endblock %}
 
 {% block body %}
 <div id="id_wrapper">
@@ -58,3 +59,4 @@
 	
 </div>
 {% endblock %}
+{% block javascripts %}{% endblock %}

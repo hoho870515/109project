@@ -60,10 +60,12 @@
 		</div>
 	</div>
 </div>
-
+{% endblock %}
+{% block javascripts %}
+{{ super()}}
 <script>
-    var patientData = JSON.parse('{{patientData | tojson | safe}}');
-    console.log(patientData)
+    // var patientData = JSON.parse('{{patientData | tojson | safe}}');
+    // console.log(patientData)
     console.log(patientData[0])
 
     var patientId = document.getElementById("patientId");
@@ -81,4 +83,5 @@
     var doctor = document.getElementById("doctor");
     doctor.textContent = "醫生: " +  patientData[4]
 </script>
+
 {% endblock %}

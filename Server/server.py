@@ -4,7 +4,7 @@ import os
 import time
 import json
 import pymysql
-
+import test
 app = Flask(__name__)
 app.config['SESSION_PROTECTION'] = 'strong'
 app.config['SECRET_KEY'] = 'yeee'
@@ -22,23 +22,21 @@ class dataBase:
         try:
             cursor = self.db.cursor()
             if instruct == 'select':
-                print(sql, variable)
+                print('select sql', sql, variable)
                 cursor.execute(sql, variable)#下指令，皆用變數儲存
                 rows = cursor.fetchone()
-                print('rows ', rows)
-                print(type(rows))
             elif instruct == 'insert':
-                print('sql : ', sql)
-                print('variable : ', variable)
+                print('insert sql : ', sql, variable)
                 cursor.execute(sql, variable)#下指令，皆用變數儲存
                 self.db.commit()
-                rows = 'successful insert'
+                rows = 'Successed Reservation'
             elif instruct == 'delete':
                 cursor.execute(sql, variable)#下指令，皆用變數儲存
                 self.db.commit()
-                rows = 'successful delete'
+                rows = 'Successed Delete'
             else:
-                rows = 'None'
+                rows = None
+            print(instruct, 'result', rows, '\n')
             return rows
         except Exception as e:
             print("Exeception occured:{}".format(e))
@@ -47,19 +45,19 @@ class dataBase:
         return rows
     def reservationOnline(self, ID, name, date, department, doctor):
         sql = "insert into patient values (%s, %s, %s, %s, %s, %s)"
-        result = self.open_db(sql, 'insert', (ID, name, date, department, doctor, 0))
+        result = self.open_db(sql, 'insert', (ID, name, date, department, doctor, '0'))
         return result
     def inquire(self, ID, Name):
         sql = "select * from patient where ID = %s "#下指令，皆用變數儲存
         result = self.open_db(sql, 'select', ID)
-        print('result', result)
-        if result:
-            return json.dumps(result)
-        else:
-            return None
-    def cancel(self, ID):
+        if result != None:
+            result = json.dumps(result)
+        
+        return result
+    def cancel(self, ID, name):
         sql = "delete from patient where ID = %s"
-        result = self.open_db(sql,'delete', ID)
+        result = self.open_db(sql, 'delete', ID)
+        return result
 
 @app.route('/reservationOnline', methods = ['GET', 'POST'])
 def reservationOnline():
@@ -74,11 +72,16 @@ def reservationOnline():
             date = request.form.get('date')
             department = request.form.get('department')
             doctor = request.form.get('doctor')
-            
+
             db = dataBase()
-            db.reservationOnline(ID, name, date, department, doctor)
-            
-            return render_template('homePage.html')
+            result = db.inquire(ID, name)
+            if result == None:
+                db = dataBase()
+                patientData = db.reservationOnline(ID, name, date, department, doctor)
+            else:
+                patientData = 'None'
+            print('Reservation result : ', patientData)
+            return render_template('homePage.html', patientData = patientData)
         elif 'return' in data:
             print('return')
             return render_template('homePage.html')
@@ -93,7 +96,7 @@ def reservation():
         data = list(request.form.keys())
         print(data)
         if 'onlineBooking' in data:
-            return render_template('reservation-Online-1.html')
+            return render_template('reservation-Online-1.html', patientData = None)
         elif 'phoneBooking' in data:
             return render_template('reservation-Phone.html')
         else:
@@ -104,28 +107,38 @@ def check():
     if request.method == 'GET':
         return render_template('Inquire-2.html')
     elif request.method == 'POST':
-        print(request)
+        
         data = list(request.form.keys())
+        print(data)
         if 'determine' in data:
             ID = request.form.get("patientId")
             name = request.form.get("patientName")
-            print('patientId: ', ID, 'patientName: ', name)
+            
             db = dataBase()
             result = db.inquire(ID, name)
-            if not result:
-                patientData = None
+            if result != None:
+                db = dataBase()
+                patientData = json.loads(db.inquire(ID, name))
             else:
-                patientData = json.loads(result)[0]
+                patientData = 'Inquire None'
+            print('Inquire result : ', patientData)
             
-            print('patientData : ', patientData)
             return render_template('Inquire-3.html', patientData = patientData)
         elif 'cancel' in data:
-            print('cancel')
+            print(request.form.get("patientId"))
             ID = request.form.get("patientId")
             name = request.form.get("patientName")
+            print('cancel : ID', ID, ' Name ', name)
+
             db = dataBase()
-            db.cancel(ID)
-            return render_template('homePage.html')
+            result = db.inquire(ID, name)
+            if result != None:
+                db = dataBase()
+                patientData = db.cancel(ID, name)
+            else:
+                patientData = 'None'
+            print('Cancel result : ', patientData)
+            # return render_template('homePage.html')
         elif 'return' in data:
             print('return')
             return render_template('Inquire-2.html')
@@ -157,6 +170,11 @@ def index():
         elif 'description' in data:
             return render_template('description.html')
     
+@app.route('/test',methods = ['GET', 'POST'])
+def test():
+    test.getData()
+
+    return render_template('test.html')
 
 if __name__ == "__main__":
     app.run(host = '0.0.0.0', port = 3333, debug = True, ssl_context = ('fcuar.com.pem', 'fcuar.com-key.pem'))

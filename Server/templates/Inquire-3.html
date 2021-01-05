@@ -1,9 +1,8 @@
 {% extends "navbar.html" %}
 
-{% block title %} - 查詢/取消預約掛號{% endblock %}
-
-
 {% block head %}
+{{ super() }}
+
 <style>
 
 .id_content01 {
@@ -33,7 +32,7 @@
 </style>
 
 {% endblock %}
-
+{% block title %} - 查詢/取消預約掛號{% endblock %}
 {% block body %}
 <div class="container">
     {% for message in get_flashed_messages() %}
@@ -56,18 +55,18 @@
 		</div> 
 				
 		<div id="id_content" class="id_content01" style = "text-align:center;">
-			<form method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
+			<form name = "patientData" method="post" action="https://140.134.26.17:3333/check" enctype="multipart/form-data">
 			
-				<p class="p2">身分證ID:</p>
-				<p class="p2">姓名:</text></p>
-				<p class="p2">日期:</text></p>
-				<p class="p2">科別:</text></p>
-				<p class="p2">醫生:</text></p>
-				<p class="p2">掛號號碼:</text></p>
+				<p id="patientId" class="p2">身分證ID:</p>
+				<p id="patientName" class="p2">姓名:</text></p>
+				<p id="date" class="p2">日期:</text></p>
+				<p id="department" class="p2">科別:</text></p>
+				<p id="doctor" class="p2">醫生:</text></p>
+				<p id="number" class="p2">掛號號碼:</text></p>
 				
 				
 				<input type="submit" class="p2" name = 'return' value="上一頁">
-				<input type="submit" class="p2" name = "cancel" value="取消掛號" onclick="return confirm('確定要取消掛號嗎?')">
+				<input type="submit" class="p2" name = "cancel" value="取消掛號" onclick = "return cancelReservation()">
 			
 				<class id = "NoReservation">
 				<div style = "text-align:center;">
@@ -80,38 +79,97 @@
 	
 	</div>
 </div>
+{% endblock %}
 
+{% block javascripts %}
+{{ super() }}
 <script>
-    var patientData = JSON.parse('{{patientData | tojson | safe}}');
-    console.log("patientData " + patientData)
-    if (patientData !== null)
-    {
-        console.log(patientData[0])
-        document.getElementsByClassName("patientData").disabled = false;
-        document.getElementsByClassName("NoReservation").disabled = true;
+	function cancelReservation(){
+        // var patientId = document.forms["patientData"]["patientId"].value;
+    
+        // var patientName = document.forms["patientData"]["patientName"].value;
+    
+        // var date = document.forms["patientData"]["date"].value;
+    
+        // var department = document.forms["patientData"]["department"].value;
+    
+        // var doctor = document.forms["patientData"]["doctor"].value;
 
+		var patientId = document.getElementById("patientId").textContent;
+        
+        var patientName = document.getElementById("patientName").textContent;
+        
+        var date = document.getElementById("date").textContent;
+        
+        var department = document.getElementById("department").textContent;
+        
+        var doctor = document.getElementById("doctor").textContent;
+        
+        var number = document.getElementById("number").textContent;
+
+		console.log("console log 身分證ID: " + patientId +
+            "\n姓名: " + patientName +
+            "\n日期: " +  date +
+            "\n科別: " +  department +
+            "\n醫生: " +  doctor)
+        if(confirm("確定要取消掛號嗎?\n" +
+			"身分證ID: " + patientId +
+            "\n姓名: " + patientName +
+            "\n日期: " +  date +
+            "\n科別: " +  department +
+            "\n醫生: " +  doctor))
+        {
+            return true
+        }
+        else{
+            return false
+        }
+	}
+    if (patientData != null)
+    {
+        
+        console.log('patient != Null ' + patientData)
+        // document.getElementsByClassName("patientData").disabled = false;
+        // document.getElementsByClassName("NoReservation").disabled = true;
+        console.log('log ' + patientData[0])
         var patientId = document.getElementById("patientId");
         patientId.textContent = "身分證ID: " + patientData[0];
+        patientId.setAttribute("v", "111111");
+        // document.forms["patientData"]["patientId"] = patientData[0];
         
         var patientName = document.getElementById("patientName");
-        patientName.textContent = "姓名: " + patientData[1]
+        patientName.textContent = "姓名: " + patientData[1];
+        patientId.setAttribute('value', patientData[1]);
         
         var date = document.getElementById("date");
-        date.textContent = "日期: " +  patientData[2]
+        date.textContent = "日期: " +  patientData[2];
+        patientId.setAttribute('value', patientData[2]);
         
         var department = document.getElementById("department");
-        department.textContent = "科別: " +  patientData[3]
+        department.textContent = "科別: " +  patientData[3];
+        patientId.setAttribute('value', patientData[3]);
         
         var doctor = document.getElementById("doctor");
-        doctor.textContent = "醫生: " +  patientData[4]
+        doctor.textContent = "醫生: " +  patientData[4];
+        patientId.setAttribute('value', patientData[4]);
         
         var number = document.getElementById("number");
-        number.textContent = "掛號號碼: " +  patientData[5]
+        number.textContent = "掛號號碼: " +  patientData[5];
+        patientId.setAttribute('value', patientData[5]);
+        // var patientId = document.forms["patientData"]["patientId"].value;
+    
+        // var patientName = document.forms["patientData"]["patientName"].value;
+    
+        // var date = document.forms["patientData"]["date"].value;
+    
+        // var department = document.forms["patientData"]["department"].value;
+    
+        // var doctor = document.forms["patientData"]["doctor"].value;
     }
-    else 
-    {
-        document.getElementsByClassName("NoReservation").disabled = false;
-        document.getElementsByClassName("patientData").disabled = true;
-    }
+    // else 
+    // {
+    //     document.getElementsByClassName("NoReservation").disabled = false;
+    //     document.getElementsByClassName("patientData").disabled = true;
+    // }
 </script>
 {% endblock %}

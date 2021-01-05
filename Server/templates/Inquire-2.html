@@ -1,8 +1,9 @@
 {% extends "navbar.html" %}
 
-{% block title %} - 查詢/取消預約掛號{% endblock %}
 
 {% block head %}
+{{ super() }}
+
 <style>
 
 .id_content01 {
@@ -31,6 +32,7 @@
 }
 </style>
 {% endblock %}
+{% block title %} - 查詢/取消預約掛號{% endblock %}
 {% block body %}
 <div id="id_wrapper">
 	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
@@ -49,3 +51,4 @@
 	</div> 
 </div>
 {% endblock %}
+{% block javascripts %}{% endblock %}

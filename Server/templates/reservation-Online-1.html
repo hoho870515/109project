@@ -1,9 +1,8 @@
 {% extends "navbar.html" %}
 
-{% block title %} - 線上預約-掛號{% endblock %}
 
 {% block head %}
-
+{{ super() }}
 <style>
 .id_content01 {
     height: 1000px;
@@ -37,35 +36,11 @@
 }
 </style>
 {% endblock %}
+{% block title %} - 線上預約-掛號{% endblock %}
 
 {% block body %}
 
-<script>
-    function doubleDetermine()
-    {
-        var patientId = document.forms["patientData"]["patientId"].value;
-    
-        var patientName = document.forms["patientData"]["patientName"].value;
-    
-        var date = document.forms["patientData"]["date"].value;
-    
-        var department = document.forms["patientData"]["department"].value;
-    
-        var doctor = document.forms["patientData"]["doctor"].value;
 
-        if(confirm("身分證ID: " + patientId +
-            "\n姓名: " + patientName +
-            "\n日期: " +  date +
-            "\n科別: " +  department +
-            "\n醫生: " +  doctor))
-        {
-            return true
-        }
-        else{
-            return false
-        }
-    }
-</script>
 
 <div id="id_wrapper">
 	<div style="background: url(../static/pexels-la-miko-3616764.jpg)no-repeat; background-size:3500px 2200px;">
@@ -115,4 +90,35 @@
 		
 	</div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ super()}}
+<!-- <script>console.log(patientData)</script> -->
+<script>
+    function doubleDetermine()
+    {
+        var patientId = document.forms["patientData"]["patientId"].value;
+    
+        var patientName = document.forms["patientData"]["patientName"].value;
+    
+        var date = document.forms["patientData"]["date"].value;
+    
+        var department = document.forms["patientData"]["department"].value;
+    
+        var doctor = document.forms["patientData"]["doctor"].value;
+
+        if(confirm("身分證ID: " + patientId +
+            "\n姓名: " + patientName +
+            "\n日期: " +  date +
+            "\n科別: " +  department +
+            "\n醫生: " +  doctor))
+        {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+</script>
 {% endblock %}
